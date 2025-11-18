@@ -32,8 +32,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Menú desplegable SIN imagen -->
     <div *ngIf="isMenuOpen" class="md:hidden bg-white">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-100">
             <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-[#ff5a60] hover:bg-gray-50">
@@ -56,5 +54,11 @@
     <!-- <div class="w-full  flex ml-8 overflow-auto mt-8 md:items-center md:mt-0 md:justify-center ml-8 md:mx-0"> 
         <app-register-phone (phone)="OpenModaleValidate($event)"></app-register-phone>
     </div> -->
+    <!-- <div class="w-full flex justify-center overflow-auto"> 
+            <app-user-data></app-user-data>
+    </div> -->
+    <div class="w-full flex justify-center overflow-auto"> 
+            <app-show-information></app-show-information>
+    </div>
 </div>
 <app-modal-code-phone [phoneNumber]="phoneNumber" [isOpenValidate]="isOpenValidate"></app-modal-code-phone>

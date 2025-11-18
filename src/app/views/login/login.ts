@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { CreateRegisterUser } from '../create-register-user/create-register-user';
 import { RegisterPhone } from "../register-phone/register-phone";
 import { ModalCodePhone } from "../../components/modal-code-phone/modal-code-phone";
+import { UserData } from "../user-data/user-data";
+import { ShowInformation } from '../show-information/show-information';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, CreateRegisterUser, RegisterPhone, ModalCodePhone],
+  imports: [CommonModule, CreateRegisterUser, RegisterPhone, ModalCodePhone, UserData, ShowInformation],
   templateUrl: './login.html'
 })
 export class Login implements OnInit {

@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-create-register-user',
   standalone: true,
-  imports: [SocialCards, ReactiveFormsModule, PasswordValidation,CommonModule],
+  imports: [SocialCards, ReactiveFormsModule, PasswordValidation, CommonModule],
   templateUrl: './create-register-user.html',
 })
 export class CreateRegisterUser implements OnInit {
