@@ -1,37 +1,40 @@
 <header class="bg-white border-b border-gray-200 overflow-hidden">
-    <div class=" ms-15 px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center  h-15 md:h-20 ">
-            <button (click)="toggleMenu()"             
-            class="text-gray-700 md:hidden p-2 rounded-md hover:bg-gray-100"
-            aria-label="Toggle menu">
-                <svg *ngIf="!isMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                <svg *ngIf="isMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <div class="flex items-center absolute left-1/2 transform -translate-x-1/2 md:relative md:left-0 md:transform-none">
-                <div class="flex items-center">
-                    <span class=" md:hidden flex flex-col items-center justify-center w-[60px] h-[50px] text-white bg-black font-bold text-xs leading-none rounded-sm">
-                        <img src="fill-4.png" class="w-[36px] h-[30px] mr-2">
-                    </span>
-                    <span class="text-xl font-bold text-gray-800 hidden md:block">
-                        <img src="cardSocial.png" class="w-[126px] h-[50px] w-auto mr-2">
-                    </span>
+    <div class="md:bg-white bg-auto bg-botton bg-no-repeat bg-[size:auto_50%] bg-[url('/angel.png')] md:bg-none">
+        <div class="ms-15 px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-15 md:h-20">
+                <button (click)="toggleMenu()"             
+                    class="text-white md:hidden p-2 rounded-md hover:bg-gray-100 -ml-6"
+                    aria-label="Toggle menu">
+                    <svg *ngIf="!isMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg *ngIf="isMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <div class="flex items-center absolute left-1/2 transform -translate-x-1/2 md:relative md:left-0 md:transform-none">
+                    <div class="flex items-center">
+                        <span class="md:hidden flex flex-col items-center justify-center w-[60px] h-[50px] text-white font-bold text-xs leading-none rounded-sm">
+                            <img src="fill-4.png" class="w-[36px] h-[30px] mr-2">
+                        </span>
+                        <span class="text-xl font-bold text-gray-800 hidden md:block">
+                            <img src="cardSocial.png" class="w-[126px] h-[50px] w-auto mr-2">
+                        </span>
+                    </div>
                 </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#"class=" font-medium text-[#ff5a60] text-base">
+                        Cómo funcionan
+                    </a>
+                    <a href="#" [ngClass]="changeOption ? 'px-8 py-3 bg-red-50 text-[#ff5a60] border border-[#ff5a60] rounded-full hover:bg-[#ff5a60] hover:text-white transition duration-30' : 'font-medium text-[#ff5a60] text-base'">
+                        Entrar
+                    </a>
+                    <a href="#" [hidden]="!changeOption" class='px-8 py-3 bg-red-50 text-[#ff5a60] border border-[#ff5a60] rounded-full hover:bg-[#ff5a60] hover:text-white transition duration-30'>
+                        Registrarme
+                    </a>
+                </nav>  
             </div>
-            <nav class="hidden md:flex items-center space-x-6 ">
-                <a href="#"class=" font-medium text-[#ff5a60] text-base">
-                    Cómo funcionan
-                </a>
-                <a href="#" [ngClass]="changeOption ? 'px-8 py-3 bg-red-50 text-[#ff5a60] border border-[#ff5a60] rounded-full hover:bg-[#ff5a60] hover:text-white transition duration-30' : 'font-medium text-[#ff5a60] text-base'">
-                    Entrar
-                </a>
-                <a href="#" [hidden]="!changeOption" class='px-8 py-3 bg-red-50 text-[#ff5a60] border border-[#ff5a60] rounded-full hover:bg-[#ff5a60] hover:text-white transition duration-30'>
-                    Registrarme
-                </a>
-            </nav>  
-            
         </div>
     </div>
-    <div *ngIf="isMenuOpen" class="md:hidden">
+    
+    <!-- Menú desplegable SIN imagen -->
+    <div *ngIf="isMenuOpen" class="md:hidden bg-white">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-100">
             <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-[#ff5a60] hover:bg-gray-50">
                 Cómo funciona
@@ -40,13 +43,18 @@
                 Entrar
             </a>
         </div>
-  </div>
+    </div>
 </header>
 <div class="flex h-[calc(100vh-80px)] overflow-hidden"> 
-  <div class="hidden md:block w-9/12 h-full">
-    <img src="angel.png" class="w-full h-full object-cover">
-  </div>
-  <div class="w-full flex justify-center overflow-auto">
-    <app-create-register-user (isValidEmail)="changeNava($event)" ></app-create-register-user>
-  </div>
+    <div class="hidden md:block w-9/12 h-full">
+        <img src="angel.png" class="w-full h-full object-cover">
+    </div>
+    <!-- <div class="w-full flex justify-center overflow-auto">
+        <app-create-register-user (isValidEmail)="changeNava($event)" ></app-create-register-user>
+         
+    </div>-->
+    <!-- <div class="w-full  flex ml-8 overflow-auto mt-8 md:items-center md:mt-0 md:justify-center ml-8 md:mx-0"> 
+        <app-register-phone (phone)="OpenModaleValidate($event)"></app-register-phone>
+    </div> -->
 </div>
+<app-modal-code-phone [phoneNumber]="phoneNumber" [isOpenValidate]="isOpenValidate"></app-modal-code-phone>

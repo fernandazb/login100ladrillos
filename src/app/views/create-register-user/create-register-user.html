@@ -1,38 +1,48 @@
-<div class="max-w-md w-full mail mx-4"> 
-  <form [formGroup]="form">
-  <h1 class="mt-10 mb-6 font-roboto text-lg font-bold ">Crear tu cuenta</h1>
-  <p class=" mb-8 text-sm font-roboto w-[320px] text-[#3e3e3e]">
-    Al aceptar crear una cuenta en 100 Ladrillos aceptas nuestro 
-    <a href="#" class="text-[#3ca4fc] hover:underline">Aviso de Privacidad, Derechos de Arco</a>
-    y nuestros <a href="#" class="text-[#3ca4fc] hover:underline">Términos y Condiciones</a>.
-  </p>
-  <label class="text-[#3e3e3e] mb-8 text-sm font-roboto font-roboto " for="mail" >¿Cuál es tu correo electrónico?</label>
-  <input id="mail" type="email" formControlName="mail" class=" max-w-[90%] mx-auto mt-3 w-full px-4 py-2 border border-gray-300 rounded-md  placeholder-gray-300 focus:outline-none focus:border-2 focus:border-sky-500  mb-6"
-    placeholder="tu@correo.com"
-    (blur)="registerCreateUser()"> 
-  <label class="text-[#3e3e3e] mb-8 text-sm font-roboto font-roboto " for="password">Ingresa una contraseña</label>
-  <input id="password" formControlName="password" type="password" class=" max-w-[90%] mx-auto  mt-3 w-full px-4 py-2 border border-gray-300 rounded-md  placeholder-gray-300 focus:outline-none focus:border-2 focus:border-sky-500  mb-6"
-    placeholder="contraseña"> 
-  <div *ngIf="requirementsPassword" class="mb-4">
-      <app-password-validation [errors]="passwordErrors" [password]="isEmptyPassword" ></app-password-validation>
-  </div>
-
-  <div>
-    <label class="text-[#3e3e3e] mb-8 text-sm font-roboto font-roboto " for="password">Confirma tu contraseña</label>
-    <input id="passwordConfirm" type="password" [hidden]="!requirementsPassword" class=" max-w-[90%] mx-auto mt-3 w-full px-4 py-2 border border-gray-300 rounded-md  placeholder-gray-300 focus:outline-none focus:border-2 focus:border-sky-500  mb-6"
-    placeholder="contraseña"> 
-  </div>  
-  <div class="flex items-center my-6 max-w-[80%] ml-6 md:max-w-full md:ml-0">
-    <div class="flex-grow border-t border-gray-300 "></div>
-    <span class="flex-shrink-0 px-2 text-gray-500 text-sm">o regístrate con:</span>
-    <div class="flex-grow border-t border-gray-300 "></div>
-  </div>
+<div class="max-w-md w-full  mx-4"> 
+  <form [formGroup]="form" >
+    <h1 class="mt-10 mb-6 font-roboto text-lg font-bold ">Crear tu cuenta</h1>
+    <p class=" mb-8 text-sm font-roboto w-[320px] text-[#3e3e3e]">
+      Al aceptar crear una cuenta en 100 Ladrillos aceptas nuestro 
+      <a href="#" class="text-[#3ca4fc] hover:underline">Aviso de Privacidad, Derechos de Arco</a>
+      y nuestros <a href="#" class="text-[#3ca4fc] hover:underline">Términos y Condiciones</a>.
+    </p>
+    <label class="text-[#3e3e3e] mb-8 text-sm font-roboto font-roboto " for="mail" >¿Cuál es tu correo electrónico?</label>
+    <input id="mail" type="email" formControlName="mail" class=" max-w-[90%] mx-auto mt-3 w-full px-4 py-2 border border-gray-300 rounded-md  placeholder-gray-300 focus:outline-none focus:border-2 focus:border-sky-500  mb-6"
+      placeholder="tu@correo.com"
+      (blur)="registerCreateUser()"> 
+    <label class="text-[#3e3e3e] mb-8 text-sm font-roboto font-roboto " for="password">Ingresa una contraseña</label>
+    <input id="password" formControlName="password" type="password" class=" max-w-[90%] mx-auto  mt-3 w-full px-4 py-2 border border-gray-300 rounded-md  placeholder-gray-300 focus:outline-none focus:border-2 focus:border-sky-500  mb-6"
+      placeholder="contraseña"> 
+    <div *ngIf="requirementsPassword" class="mb-4">
+        <app-password-validation [errors]="passwordErrors" [password]="isEmptyPassword" ></app-password-validation>
+    </div>
+    <div *ngIf="requirementsPassword" >
+      <label class="text-[#3e3e3e] mb-8 text-sm font-roboto font-roboto " for="password">Confirma tu contraseña</label>
+      <input id="passwordConfirm" type="password" class=" max-w-[90%] mx-auto mt-3 w-full px-4 py-2 border border-gray-300 rounded-md  placeholder-gray-300 focus:outline-none focus:border-2 focus:border-sky-500  mb-6"
+      placeholder="contraseña"> 
+      <button type="submit" class="bg-gray-100  text-[#8c8c8c] py-3 px-8 rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-2  focus:ring-gray-200 ">
+        Siguiente
+      </button>
+    </div>  
+    <div *ngIf="!requirementsPassword" class="flex items-center my-6 max-w-[80%] ml-6 md:max-w-[90%]  md:ml-0">
+      <div class="flex-grow border-t border-gray-300 "></div>
+        <span class="flex-shrink-0 px-2 text-gray-500 text-sm">o regístrate con:</span>
+      <div class="flex-grow border-t border-gray-300 "></div>
+    </div>
   </form>
 </div>
-
-<div class="flex justify-center space-x-8">
+<div *ngIf="!requirementsPassword" class="flex justify-center space-x-8 md:max-w-[90%]  ">
   <app-social-cards image="google.png"></app-social-cards>
   <app-social-cards image="microsoft.png"></app-social-cards>
   <app-social-cards image="facebook.png"></app-social-cards>
- 
 </div>
+<div class="flex items-center  mt-8 mb-1 max-w-[80%]  md:max-w-[90%]   md:ml-0 justify-center text-14px ">
+  <label class="text-[#3e3e3e]  font-roboto font-roboto ">¿Ya tienes tu cuenta?
+</label>
+</div>
+<div class="flex items-center max-w-[80%]  md:max-w-[90%] md:ml-0 justify-center text-14px font-bold ">
+  <label class="text-[#ff5a60]    font-roboto font-roboto ">Iniciar sesión
+  </label>
+
+</div>
+ 
