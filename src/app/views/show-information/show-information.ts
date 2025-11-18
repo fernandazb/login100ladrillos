@@ -7,6 +7,7 @@ import { Indicator } from '../../components/indicator/indicator';
 
 @Component({
   selector: 'app-show-information',
+  standalone: true,
   imports: [CommonModule, Indicator],
   templateUrl: './show-information.html',
   
