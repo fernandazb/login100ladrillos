@@ -1,5 +1,5 @@
-<div class="max-w-md w-full  mx-4"> 
-  
+<div class="max-w-md w-full  mx-4" *ngIf="isUserDataFlag"> 
+  <form [formGroup]="form" (submit)="createInformationUser()" >
     <h1 class="mt-10 mb-6 font-roboto text-lg font-bold ">¿Cómo te llamas?</h1>
     <div>
         <label class="text-[#3e3e3e] mb-8 text-sm font-roboto font-roboto " for="name" >Primer nombre</label>
@@ -34,9 +34,10 @@
         <button type="button" class="bg-gray-100  text-[#8c8c8c] py-3 px-8 rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-2  focus:ring-gray-200 ">
             Anterior
         </button>
-        <button type="button" class=" mr-4 bg-gray-100  text-[#8c8c8c] py-3 px-8 rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-2  focus:ring-gray-200 " >
+        <button type="submit" class=" mr-4 bg-gray-100  text-[#8c8c8c] py-3 px-8 rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-2  focus:ring-gray-200 " >
             Siguiente
         </button>
     </div>
+    </form>
 </div>
     

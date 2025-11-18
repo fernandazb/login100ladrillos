@@ -47,18 +47,17 @@
     <div class="hidden md:block w-9/12 h-full">
         <img src="angel.png" class="w-full h-full object-cover">
     </div>
-    <!-- <div class="w-full flex justify-center overflow-auto">
-        <app-create-register-user (isValidEmail)="changeNava($event)" ></app-create-register-user>
-         
-    </div>-->
-    <!-- <div class="w-full  flex ml-8 overflow-auto mt-8 md:items-center md:mt-0 md:justify-center ml-8 md:mx-0"> 
-        <app-register-phone (phone)="OpenModaleValidate($event)"></app-register-phone>
-    </div> -->
-    <!-- <div class="w-full flex justify-center overflow-auto"> 
-            <app-user-data></app-user-data>
-    </div> -->
-    <div class="w-full flex justify-center overflow-auto"> 
-            <app-show-information></app-show-information>
+    <div *ngIf="isCreateRegisterFlag" class="w-full flex justify-center overflow-auto">
+        <app-create-register-user (isValidEmail)="changeNava($event)" (successfullCreate)="isRegisterPhone()" [isCreateRegisterFlag]="isCreateRegisterFlag"></app-create-register-user>
+    </div>
+    <div  *ngIf="isRegisterPhoneFlag" class="w-full  flex ml-8 overflow-auto mt-8 md:items-center md:mt-0 md:justify-center ml-8 md:mx-0"> 
+        <app-register-phone (phone)="OpenModaleValidate($event)" [isRegisterPhoneFlag]="isRegisterPhoneFlag"></app-register-phone>
+    </div>
+    <div *ngIf="isUSerDataFlag" class="w-full flex justify-center overflow-auto"> 
+            <app-user-data [isUserDataFlag]="isUSerDataFlag" (successfullProfileUser)="isShowInformation($event)"></app-user-data>
+    </div>
+    <div *ngIf="isShowInformationFlag" class="w-full flex justify-center overflow-auto"> 
+            <app-show-information  [isShowInformationFlag]="isShowInformationFlag"></app-show-information>
     </div>
 </div>
-<app-modal-code-phone [phoneNumber]="phoneNumber" [isOpenValidate]="isOpenValidate"></app-modal-code-phone>
+<app-modal-code-phone [phoneNumber]="phoneNumber" [isOpenValidate]="isOpenValidate" (onValidate)="closeModalValidate($event)"></app-modal-code-phone>

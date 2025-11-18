@@ -1,16 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component, Output, EventEmitter, input, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms'
+import { AuthService } from '../../services/AuthSessionService';
+import { PhoneNumberResponse } from '../../interfaces/PhoneNumberResponse';
+import { ApiError } from '../../interfaces/ApiError';
 
 @Component({
   selector: 'app-modal-code-phone',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './modal-code-phone.html',
 })
 export class ModalCodePhone {
-  @Input() isOpenValidate: boolean = false;
-  @Input() phoneNumber: number = 0;
-  @Output() onValidate = new EventEmitter<string>();
+  @Input() isOpenValidate: boolean = true;
+  @Input() phoneNumber: string = "";
+  @Output() onValidate = new EventEmitter<boolean>();
+  apiError: ApiError | null =null;
+  constructor( private _authService: AuthService) {}
 
   code: string[] = ['', '', '', ''];
 
@@ -37,6 +43,23 @@ export class ModalCodePhone {
 
   validateCode() {
     const finalCode = this.code.join('');
-    this.onValidate.emit(finalCode);
+    const request: PhoneNumberResponse ={
+      token: finalCode
+    }
+    this._authService.verifyPhoneNumber(request).subscribe({
+              next: (response) => {
+                this.onValidate.emit(true);
+                console.log('Usuario creado con éxito:', response);
+              },
+              error: (error: ApiError) => {
+                this.apiError = error;
+                console.error('API Test Error:', error.errorCode);
+                this.onValidate.emit(false);
+              }
+            });
+
+  }
+  CloseModal(){
+
   }
 }

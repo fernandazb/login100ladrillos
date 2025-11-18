@@ -14,14 +14,26 @@ import { ShowInformation } from '../show-information/show-information';
 })
 export class Login implements OnInit {
   changeOption: boolean = false;
-  isMenuOpen = false;
+  isRegisterPhoneFlag: boolean =  false
+  isCreateRegisterFlag: boolean = false
+  isMenuOpen: boolean = false;
   isOpenValidate: boolean = false;
-  phoneNumber: number = 0;
+  isUSerDataFlag: boolean = false;
+  isShowInformationFlag : boolean = false;
+  phoneNumber: string = "";
 
   ngOnInit() {  
     this.changeOption = false;
+    this.isCreateRegisterFlag=true
+    this.isRegisterPhoneFlag=false
+    this.isOpenValidate = false;
+    this.isUSerDataFlag = false
+    this.isShowInformationFlag = false
   }
-
+  isRegisterPhone() {
+    this.isRegisterPhoneFlag =  true
+    this.isCreateRegisterFlag= false
+  }
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
@@ -30,8 +42,24 @@ export class Login implements OnInit {
     this.changeOption = event;
   }
   
-  OpenModaleValidate(event: number ) {
+  OpenModaleValidate(event: string ) {
     this.phoneNumber = event; 
     this.isOpenValidate = true;
   }
+
+  closeModalValidate(event: boolean){
+    if(event == false){
+      this.isOpenValidate = false;
+    }
+    if(event == true){
+      this.isOpenValidate = false;
+      this.isUSerDataFlag = true
+      this.isRegisterPhoneFlag =  false
+    }
+  }
+  isShowInformation(event: boolean){
+    this.isUSerDataFlag = false
+    this.isShowInformationFlag =  true
+  }
+
 }

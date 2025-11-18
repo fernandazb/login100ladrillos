@@ -1,4 +1,4 @@
-<div class="max-w-md w-full  mx-4 items-center justify-center mt-10 md:mt-30"> 
+<div class="max-w-md w-full  mx-4 items-center justify-center mt-10 md:mt-30" *ngIf="informationClient"> 
            <div class="flex items-center justify-center ">
                         <span class=" items-center justify-center w-[60px] h-[60px] text-white font-bold  rounded-sm">
                             <img src="done.png" class="w-[60px] h-[60px] mr-2">
@@ -6,10 +6,10 @@
         
             </div>
     <label class=" flex justify-center mt-6 font-roboto text-lg font-bold ">Haz creado una cuenta</label>
-    <label class=" flex justify-center text-14px  font-roboto text-gray-400 ">Tu número de cliente es: 000001</label>
-    <label class=" flex justify-center text-[24px] mt-6 text-black ">Lucile Salazar Quintero</label>
-    <label class=" flex justify-center text-[18px] mt-1 text-gray-800 ">tu@correo.com</label>
-    <label class=" flex justify-center text-[16x] mt-1 text-gray-800 ">33 1111 1111</label>
+    <label class=" flex text-center justify-center text-14px  text-gray-400 mx-auto w-fit">Tu número de cliente es: {{informationClient.clientNumber}}</label>
+    <label class=" flex justify-center text-[24px] mt-6 text-black ">{{informationClient.name}} {{informationClient.secondName}} {{informationClient.firstLastName}} {{informationClient.secondLastName}}</label>
+    <label class=" flex justify-center text-[18px] mt-1 text-gray-800 ">{{informationClient.email}}</label>
+    <label class=" flex justify-center text-[16px] mt-1 text-gray-800 ">{{informationClient.phone.number}}</label>
 
     <label class="text-[#ff5a60] flex justify-center  mt-5 font-bold  ">Iniciar sesión
   </label>
