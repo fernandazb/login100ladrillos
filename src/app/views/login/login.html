@@ -50,7 +50,7 @@
     <div *ngIf="isCreateRegisterFlag" class="w-full flex justify-center overflow-auto">
         <app-create-register-user (isValidEmail)="changeNava($event)" (successfullCreate)="isRegisterPhone()" [isCreateRegisterFlag]="isCreateRegisterFlag"></app-create-register-user>
     </div>
-    <div  *ngIf="isRegisterPhoneFlag" class="w-full  flex ml-8 overflow-auto mt-8 md:items-center md:mt-0 md:justify-center ml-8 md:mx-0"> 
+    <div  *ngIf="isRegisterPhoneFlag" class="w-full  flex  overflow-auto mt-8 md:items-center md:mt-0 md:justify-center ml-8 md:mx-0"> 
         <app-register-phone (phone)="OpenModaleValidate($event)" [isRegisterPhoneFlag]="isRegisterPhoneFlag"></app-register-phone>
     </div>
     <div *ngIf="isUSerDataFlag" class="w-full flex justify-center overflow-auto"> 

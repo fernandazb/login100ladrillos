@@ -9,11 +9,12 @@ import { AuthService } from '../../services/AuthSessionService';
 import { LoginUp } from '../../interfaces/LoginUp';
 import { Login } from '../login/login';
 import { ApiError } from '../../interfaces/ApiError';
+import { Indicator } from '../../components/indicator/indicator';
 
 @Component({
   selector: 'app-create-register-user',
   standalone: true,
-  imports: [SocialCards, ReactiveFormsModule, PasswordValidation, CommonModule],
+  imports: [SocialCards, ReactiveFormsModule, PasswordValidation, CommonModule, Indicator],
   templateUrl: './create-register-user.html',
 })
 export class CreateRegisterUser implements OnInit {

@@ -3,9 +3,10 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { AuthService } from '../../services/AuthSessionService';
 import { PhoneNumber } from '../../interfaces/PhoneNumber';
 import { ApiError } from '../../interfaces/ApiError';
+import { Indicator } from '../../components/indicator/indicator';
 @Component({
   selector: 'app-register-phone',
-  imports: [CommonModule],
+  imports: [CommonModule, Indicator],
   standalone: true,
   templateUrl: './register-phone.html',
 })

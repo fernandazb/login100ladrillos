@@ -1,0 +1,12 @@
+<div class="flex justify-center space-x-16 my-4">
+  <ng-container *ngFor="let i of indicators; let index = index">
+    <div
+      [class.bg-gray-700]="isActive(index)"
+      [class.bg-gray-300]="!isActive(index)"
+      class="h-3 rounded-full transition-all duration-300 cursor-pointer w-3"
+      aria-label="Ir al paso {{ index + 1 }}"
+      title="Paso {{ index + 1 }}"
+    >
+      </div>
+  </ng-container>
+</div>

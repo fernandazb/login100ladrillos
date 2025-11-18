@@ -1,5 +1,5 @@
-<div *ngIf="isCreateRegisterFlag">
-  <div class="max-w-md w-full  mx-4"> 
+<div *ngIf="isCreateRegisterFlag" class="flex flex-col md:flex-col">
+  <div class="max-w-md w-full  mx-4 order-2 md:order-1"> 
     <form [formGroup]="form" (submit)="createAccount()" >
       <h1 class="mt-10 mb-6 font-roboto text-lg font-bold ">Crear tu cuenta</h1>
       <p class=" mb-8 text-sm font-roboto w-[320px] text-[#3e3e3e]">
@@ -32,19 +32,27 @@
       </div>
     </form>
   </div>
-  <div *ngIf="!requirementsPassword" class="flex justify-center space-x-8 md:max-w-[90%]  ">
+  <div *ngIf="!requirementsPassword" class="flex justify-center space-x-8 md:max-w-[90%] order-3 md:order-2  ">
     <app-social-cards image="google.png"></app-social-cards>
     <app-social-cards image="microsoft.png"></app-social-cards>
     <app-social-cards image="facebook.png"></app-social-cards>
   </div>
-  <div class="flex items-center  mt-8 mb-1 max-w-[80%]  md:max-w-[90%]   md:ml-0 justify-center text-14px ">
-    <label class="text-[#3e3e3e]  font-roboto font-roboto ">¿Ya tienes tu cuenta?
-  </label>
-  </div>
-  <div class="flex items-center max-w-[80%]  md:max-w-[90%] md:ml-0 justify-center text-14px font-bold ">
-    <label class="text-[#ff5a60]    font-roboto font-roboto ">Iniciar sesión
-    </label>
 
+    <div class="flex text-center  mt-8 mb-1 max-w-[90%]  md:max-w-[90%]   md:ml-0 justify-center text-14px  order-4 md:order-3">
+      <label class="text-[#3e3e3e]  font-roboto font-roboto ">¿Ya tienes tu cuenta?
+      </label>
+    </div>
+    <div class="flex text-center max-w-[90%]  md:max-w-[90%] md:ml-0 justify-center text-14px font-bold order-5 md:order-4 ">
+      <label class="text-[#ff5a60]    font-roboto font-roboto ">Iniciar sesión
+      </label>
+    </div>
+
+
+  <div class="  md:mt-20 order-1 md:order-5">
+      <app-indicator [totalItems]="4" [activeIndex]="0"></app-indicator>
   </div>
+
 </div>  
+
+
   
