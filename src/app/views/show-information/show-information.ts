@@ -3,10 +3,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../../services/AuthSessionService';
 import { ClientInformation } from '../../interfaces/ClientInformation';
 import { ApiError } from '../../interfaces/ApiError';
+import { Indicator } from '../../components/indicator/indicator';
 
 @Component({
   selector: 'app-show-information',
-  imports: [CommonModule],
+  imports: [CommonModule, Indicator],
   templateUrl: './show-information.html',
   
 })

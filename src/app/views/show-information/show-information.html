@@ -1,17 +1,22 @@
-<div class="max-w-md w-full  mx-4 items-center justify-center mt-10 md:mt-30" *ngIf="informationClient"> 
-           <div class="flex items-center justify-center ">
-                        <span class=" items-center justify-center w-[60px] h-[60px] text-white font-bold  rounded-sm">
-                            <img src="done.png" class="w-[60px] h-[60px] mr-2">
-                        </span>
-        
-            </div>
-    <label class=" flex justify-center mt-6 font-roboto text-lg font-bold ">Haz creado una cuenta</label>
-    <label class=" flex text-center justify-center text-14px  text-gray-400 mx-auto w-fit">Tu número de cliente es: {{informationClient.clientNumber}}</label>
-    <label class=" flex justify-center text-[24px] mt-6 text-black ">{{informationClient.name}} {{informationClient.secondName}} {{informationClient.firstLastName}} {{informationClient.secondLastName}}</label>
-    <label class=" flex justify-center text-[18px] mt-1 text-gray-800 ">{{informationClient.email}}</label>
-    <label class=" flex justify-center text-[16px] mt-1 text-gray-800 ">{{informationClient.phone.number}}</label>
+<div *ngIf="informationClient" class="flex flex-col md:flex-col">
+  <div class="max-w-md w-full  mx-4 items-center justify-center mt-10 md:mt-30 order-2 md:order-1" > 
+            <div class="flex items-center justify-center ">
+                          <span class=" items-center justify-center w-[60px] h-[60px] text-white font-bold  rounded-sm">
+                              <img src="done.png" class="w-[60px] h-[60px] mr-2">
+                          </span>
+          
+              </div>
+      <label class=" flex justify-center mt-6 font-roboto text-lg font-bold ">Haz creado una cuenta</label>
+      <label class=" flex text-center justify-center text-14px  text-gray-400 mx-auto w-fit">Tu número de cliente es: {{informationClient.clientNumber}}</label>
+      <label class=" flex  text-center  justify-center text-[24px] mt-6 text-black ">{{informationClient.name}} {{informationClient.secondName}} {{informationClient.firstLastName}} {{informationClient.secondLastName}}</label>
+      <label class=" flex justify-center text-[18px] mt-1 text-gray-800 ">{{informationClient.email}}</label>
+      <label class=" flex justify-center text-[16px] mt-1 text-gray-800 ">{{informationClient.phone.number}}</label>
 
-    <label class="text-[#ff5a60] flex justify-center  mt-5 font-bold  ">Iniciar sesión
-  </label>
-</div>
- 
+      <label class="text-[#ff5a60] flex justify-center  mt-5 font-bold  ">Iniciar sesión
+    </label>
+  </div>
+  <div class="  md:mt-20 order-1 md:order-2">
+    <app-indicator [totalItems]="4" [activeIndex]="3"></app-indicator>
+  </div>
+
+ </div> 

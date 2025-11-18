@@ -4,9 +4,10 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 import { AuthService } from '../../services/AuthSessionService';
 import { ProfileName } from '../../interfaces/ProfileName';
 import { ApiError } from '../../interfaces/ApiError';
+import { Indicator } from '../../components/indicator/indicator';
 @Component({
   selector: 'app-user-data',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,Indicator],
   templateUrl: './user-data.html',
   standalone: true,
 })
